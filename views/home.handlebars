@@ -1,0 +1,86 @@
+<div class="container-fluid header">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 style="color:snow;">For Waiters</h3>
+            <a class="margin-right home" style="text-decoration: none" href="/"><i class="fa fa-home"></i>Home</a>
+            <a href="/days" class="waiter_shifts" style="text-decoration: none"><i class="material-icons">&#xe0ba;</i>Waiter Shifts</a>
+            <a class="shifts" style="text-decoration: none" href="/waiters"><i class="material-icons">&#xe15e;</i>Current Waiter</a>            
+            <a href="" class="checkWaiters" style="text-decoration: none" data-toggle="modal" data-target="#checkWaiters"><i class="material-icons">person</i>Available Waiters</a>
+            
+
+        </div>
+    </div>
+</div>
+
+<form class="form-inline" action="/waiters" method="post">
+
+<div class="container-fluid margin-top">
+    <div class="row">
+        <div class="col-12">
+            <span>Please enter your name below.</span>
+        </div>
+        <div class="col-12 top">
+            <input type="text" pattern="[A-Za-z -]+" title="Your entry has invalid characters" name="name" value="{{waiter}}" placeholder="..." class="nameInput"></input>
+            <button type="submit" style="font-size: 1em; color:black; 100px;" class="btn btn-enter"><span class="glyphicon glyphicon-arrow-right"></span>Enter</button>
+            
+        </div>
+        <div class="col-12">
+            <span class="error">{{messages.error}}</span>
+        </div>
+    </div>
+</div>
+
+</form>
+
+
+
+<div class="containter-fluid top">
+    <div class="row">
+        <div class="col-12">
+            {{#if submitted}}
+            <strong class="SuccessColor">{{submitted}}<a class="SuccessColor" style="text-decoration: none;"href="/waiters/{{waiter}}">{{waiter}}!</a></strong>
+            {{/if}}
+
+            {{#if notSubmitted}}
+            <strong class="errorColor">{{notSubmitted}}<a class="errorColor" style="text-decoration: none;"href="/waiters/{{waiter}}">{{waiter}}</a></strong>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" style="background: url(https://images.unsplash.com/photo-1432256851563-20155d0b7a39?crop=entropy&dpr=1.75&fit=crop&fm=jpg&h=800&ixjsv=2.1.0&ixlib=rb-0.3.5&q=57&w=1200) no-repeat center center fixed;" id="checkWaiters" tabindex="-1" role="dialog" aria-labelledby="checkWaitersLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                <h3 class="modal-title" id="checkWaitersLabel">Select Waiters</h3>
+             
+
+                <div class="content-wrapper">
+                     <div class="modal-body">
+
+                         <table class="table table-bordered">  
+                             <tbody>
+                                 <tr>
+                                     {{#each showWaiter}} 
+                                     <ul class="modalWaiters">
+                                         <li><a class="selectWaiter" style="text-decoration: none;" href="/waiters/{{waiter}}">{{waiter}}</a></li>
+                                        
+                                    </ul>
+                                     {{/each}}
+                                </tr>
+                            </tbody>
+                        </table>
+              
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

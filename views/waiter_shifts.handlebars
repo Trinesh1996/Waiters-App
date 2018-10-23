@@ -1,0 +1,152 @@
+
+<div class="container-fluid header">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 style="color:snow;">Waiter Shifts</h3>
+            <a class="margin-right home" style="text-decoration: none" href="/"><i class="fa fa-home"></i>Home</a>
+            <a href="/days" class="waiter_shifts" style="text-decoration: none"><i class="material-icons">&#xe0ba;</i>Waiter Shifts</a>
+            <a class="shifts" style="text-decoration: none" href="/waiters"><i class="material-icons">&#xe15e;</i>Current Waiter</a>            
+            <a class="checkWaiters" href="" style="text-decoration: none" data-toggle="modal" data-target="#checkWaiters"><i class="material-icons">person</i>Available Waiters</a>  
+ </div>
+    </div>
+</div>
+
+<div class="container-fluid top">
+    <div class="row">
+        <div class="col"></div>         
+        <div class="col"></div>
+        <div class="col-12">
+    </div>
+    </div>
+</div>
+
+<div style="width:500px;" class="container-fluid top">
+    <div class="row">
+        <div class="col-6">            
+            <ul class="legend">
+                <li><span class="nothing"></span>Empty</li>
+                <li><span class="lessThree"></span>Less Than 3</li>
+                <li><span class="justThree"></span>Just Enough</li>
+                <li><span class="MoreThree"></span>Over Subscribed</li>
+            </ul>
+        </div>
+        <a href="" data-toggle="modal" data-target="#resetModal"><i class="glyphicon glyphicon-refresh top-less" >Reset</i></a>
+    </div>
+</div>
+
+
+<div class="container-fluid margin-top container-width">
+  <div class="row">
+    <div class="col-12 tables">
+      <table class="table table-bordered">
+          <thead class="header">
+                <tr class="head table-info" style="color: snow; text-align:center; z-index: -1;">
+                    {{#each data}}
+                    <th>{{week_days}}</th> 
+                    {{/each}}                  
+                </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                {{#each data}}
+                <td class="{{marked}}">
+                    <ul class="waiters">
+                        {{#each users}}
+                        <li>{{waiter}}</li>
+                        <hr>
+                        {{/each}}
+                    </ul>
+                </td>
+                {{/each}}
+            </tr>
+        </tbody>
+    </table>
+</div> 
+</div> 
+</div>    
+
+<div class="modal fade" style="background: url(https://images.unsplash.com/photo-1432256851563-20155d0b7a39?crop=entropy&dpr=1.75&fit=crop&fm=jpg&h=800&ixjsv=2.1.0&ixlib=rb-0.3.5&q=57&w=1200) no-repeat center center fixed;" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                <h3 class="modal-title" id="resetModalLabel">Weekly Recycle</h3>
+                
+                </div>
+                <h4 class="top">Recycle for the New Week?</h4>
+                <a href="/reset" style="text-decoration: none; "><i class="far fa-thumbs-up margin-right top-less"></i></a>
+                <a href="" data-dismiss="modal"><i class="far fa-thumbs-down"></i></a>                    
+
+                <div class="content-wrapper">
+                     <div class="modal-body">
+                         <p style="margin-top: 1.2em;">Waiters Working for this week.</p>
+                         <br/>
+
+                         <table class="table table-bordered">  
+                             <tbody>
+                                 <tr>
+                                     {{#each showWaiter}} 
+                                     <ul class="modalWaiters">
+                                         <strong><li>{{waiter}}</li></strong>
+                                    </ul>
+                                     {{/each}}
+                                </tr>
+                            </tbody>
+                        </table>                           
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" style="background: url(https://images.unsplash.com/photo-1432256851563-20155d0b7a39?crop=entropy&dpr=1.75&fit=crop&fm=jpg&h=800&ixjsv=2.1.0&ixlib=rb-0.3.5&q=57&w=1200) no-repeat center center fixed;" id="checkWaiters" tabindex="-1" role="dialog" aria-labelledby="checkWaitersLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                <h3 class="modal-title" id="checkWaitersLabel">Select Waiters</h3>
+                
+             
+
+                <div class="content-wrapper">
+                     <div class="modal-body">
+
+                         <table class="table table-bordered">  
+                             <tbody>
+                                 <tr>
+                                     {{#each showWaiter}} 
+                                     <ul class="modalWaiters">
+                                        <li><a class="selectWaiter" style="text-decoration: none;" href="/waiters/{{waiter}}">{{waiter}}</a></li>
+                                        
+                                    </ul>
+                                     {{/each}}
+                                </tr>
+                            </tbody>
+                        </table>
+              
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  
+
+
+
+
+                        
+
+                        
+
+
+
+

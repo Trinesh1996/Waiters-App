@@ -80,11 +80,9 @@ module.exports = function (waiters) {
     }
 
     async function reset (req, res, next) {    
-            let data = await waiters.displayShifts()
-            let showWaiter = await waiters.getWaiter()
-          
-            res.render("waiter_shifts", {data, showWaiter});
-     
+            await waiters.reset();
+
+            res.redirect('/');
     }
   
     return {

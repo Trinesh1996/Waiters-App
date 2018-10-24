@@ -134,29 +134,29 @@ describe('Checks Shifts', async function() {
             await waiter.assignShifts(['Monday', 'Wednesday'], 'Jerry');
             await waiter.assignShifts(['Sunday', 'Wednesday'], 'Sanjay');
 
-            let displayShifts = await waiter.displayShifts();
+       
             
             // Display shifts for Monday: Color Green = 3
-            assert.deepEqual(await displayShifts[0].users, [ { waiter: 'Trinesh' },
+            assert.deepEqual(await waiter.displayShifts[0].users, [ { waiter: 'Trinesh' },
             { waiter: 'Mark' }, {waiter: 'Jerry'}]);
 
             // Display Shifts for Tuesday: Color Yello < 3
-            assert.deepEqual(await displayShifts[1].users, [ { waiter: 'Trinesh' }]);
+            assert.deepEqual(await waiter.displayShifts[1].users, [ { waiter: 'Trinesh' }]);
         
             //Display Shifts for Wednesday: Color Red > 3
-            assert.deepEqual(await displayShifts[2].users, [ { waiter: 'Trinesh' },
+            assert.deepEqual(await waiter.displayShifts[2].users, [ { waiter: 'Trinesh' },
             { waiter: 'Mark' },
             { waiter: 'Jerry' },
             { waiter: 'Sanjay' }]);
 
             //Shifts for Thursday = emtpy: Color Purple = 0
-            assert.deepEqual(await displayShifts[3].users, []);
+            assert.deepEqual(await waiter.displayShifts[3].users, []);
             //Shifts for Friday = emtpy: Color Yello < 3
-            assert.deepEqual(await displayShifts[4].users, [ { waiter: 'Trinesh' } ] );
+            assert.deepEqual(await waiter.displayShifts[4].users, [ { waiter: 'Trinesh' } ] );
             //Shifts for Saturday = emtpy: Color Purple = 0
-            assert.deepEqual(await displayShifts[5].users, []);
+            assert.deepEqual(await waiter.displayShifts[5].users, []);
             //Shifts for Sunday = emtpy: Color Purple = 0
-            assert.deepEqual(await displayShifts[6].users, [ { waiter: 'Sanjay' } ] );
+            assert.deepEqual(await waiter.displayShifts[6].users, [ { waiter: 'Sanjay' } ] );
         })
     });
 
@@ -182,8 +182,7 @@ describe('Should change color based on the amount of waiters working for each da
         await waiter.assignShifts(['Monday', 'Wednesday'], 'Mark');
         await waiter.assignShifts(['Monday', 'Wednesday'], 'Jerry');
         await waiter.assignShifts(['Sunday', 'Wednesday'], 'Sanjay');
-
-        let displayShifts = await waiter.displayShifts();        
+        
         // Display shifts for Monday: Color Green = 3
         assert.deepEqual(await displayShifts[0].users, [ { waiter: 'Trinesh' },
         { waiter: 'Mark' }, {waiter: 'Jerry'}]);
@@ -204,7 +203,7 @@ describe('Should change color based on the amount of waiters working for each da
         await waiter.assignShifts(['Monday', 'Wednesday'], 'Jerry');
         await waiter.assignShifts(['Sunday', 'Wednesday'], 'Sanjay');
 
-        let displayShifts = await waiter.displayShifts();
+       
 
          // Display Shifts for Tuesday: Color Yello < 3
          assert.deepEqual(await displayShifts[1].users, [ { waiter: 'Trinesh' }]);
@@ -225,10 +224,10 @@ describe('Should change color based on the amount of waiters working for each da
         await waiter.assignShifts(['Monday', 'Wednesday'], 'Jerry');
         await waiter.assignShifts(['Sunday', 'Wednesday'], 'Sanjay');
 
-        let displayShifts = await waiter.displayShifts();
+        
 
          //Display Shifts for Wednesday: Color Red > 3
-         assert.deepEqual(await displayShifts[2].users, [ { waiter: 'Trinesh' },
+         assert.deepEqual(await wadisplayShifts[2].users, [ { waiter: 'Trinesh' },
          { waiter: 'Mark' },
          { waiter: 'Jerry' },
          { waiter: 'Sanjay' }]);

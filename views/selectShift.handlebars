@@ -14,7 +14,7 @@
 
 <form class="form-inline" action="/waiters/{{user}}" method="POST">
 
-<div class="container-fluid top">  
+<div class="container-fluid top">
     <h3>{{message}}</h3>
     <hr>
 
@@ -22,7 +22,8 @@
         <div class="form-group">
             {{#each match}}
             <label class="control control--checkbox">
-            <input type="checkbox" name="weekdays" autocomplete="off" value="{{week_days}}" {{checked}}>{{week_days}}</input>
+            <input type="checkbox" name="weekdays" autocomplete="off" value="{{week_days}}" {{checked}}>
+            <span class="margin-left5">{{week_days}}</span></input>
             <div class="control__indicator"></div>
             </label>
             {{/each}}
@@ -30,7 +31,7 @@
     </div>
 </div>
 
-<button type="submit" class="btn">
+
 <button type="submit" class="btn btn-light"></i>Enter</button>
 {{messages.error}}
 </form>
